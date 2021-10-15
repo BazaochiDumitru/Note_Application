@@ -16,8 +16,9 @@
 </header>
 
 <div class="container mt-5">
-    <h1>Details for note</h1>
+    <h1>Details for notes</h1>
     <div th:each="el : ${note}" class="alert alert-secondary">
+        <strong><p class="d-inline">Note number: </p></strong><p th:text="${el.id}"  class="d-inline"></p>
         <p th:text="${el.text}"></p>
         <form th:action="'/note/' + ${el.id} + '/remove'" method="post">
             <button class="btn btn-warning" type="submit">Delete</button>
