@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Note Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
+</head>
+<body>
+<header>
+    <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4">
+        <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+            <a class="me-3 py-2 text-dark text-decoration-none" href="/note">Main</a>
+            <a class="me-3 py-2 text-dark text-decoration-none" href="/note/add">Add Notes</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container mt-5">
+    <h1>Details for note</h1>
+    <div th:each="el : ${note}" class="alert alert-secondary">
+        <p th:text="${el.text}"></p>
+        <form th:action="'/note/' + ${el.id} + '/remove'" method="post">
+            <button class="btn btn-warning" type="submit">Delete</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
